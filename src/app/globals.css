@@ -39,3 +39,8 @@ h6 {
     font-size: 12px;
 }
 
+
+.swiper-button-prev:after, .swiper-button-next:after{
+    font-size: 30px !important;
+    color: orange !important;
+}
