@@ -16,29 +16,31 @@ import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules';
 
 
 
-export default function App() {
+export default function MainSlider() {
   return (
     <>
-      <Swiper
-        rewind={true}
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        scrollbar={{ draggable: true }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation, Scrollbar]}
-        className="mySwiper h-96 cursor-pointer rounded"
-      >
-        <SwiperSlide><Image src={"/images/slider/slider1.jpg"} width={1400} height={500} alt='Slider1' quality={100} /></SwiperSlide>
-        <SwiperSlide><Image src={"/images/slider/slider2.jpg"} width={1400} height={500} alt='Slider2' quality={100} /></SwiperSlide>
-        <SwiperSlide><Image src={"/images/slider/slider3.jpg"} width={1400} height={500} alt='Slider3' quality={100} /></SwiperSlide>
-      </Swiper>
+      <section className="mx-16 my-5">
+        <Swiper
+          rewind={true}
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          scrollbar={{ draggable: true }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation, Scrollbar]}
+          className="mySwiper h-96 cursor-pointer rounded"
+        >
+          <SwiperSlide><Image src={"/images/slider/slider1.jpg"} width={1400} height={500} alt='Slider1' quality={100} /></SwiperSlide>
+          <SwiperSlide><Image src={"/images/slider/slider2.jpg"} width={1400} height={500} alt='Slider2' quality={100} /></SwiperSlide>
+          <SwiperSlide><Image src={"/images/slider/slider3.jpg"} width={1400} height={500} alt='Slider3' quality={100} /></SwiperSlide>
+        </Swiper>
+      </section>
     </>
   );
 }

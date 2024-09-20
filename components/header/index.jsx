@@ -16,7 +16,7 @@ const Header = () => {
     const [rotateEmail, setRotateEmail] = useState(false);
 
     return (
-        <header className="shadow-md h-32 py-2">
+        <header className="shadow-sm h-32 py-2">
             <div className="container flex justify-center">
 
 
