@@ -8,6 +8,10 @@
     color: #37474f;
 }
 
+.container {
+    display: flex;
+    overflow-x: auto;
+}
 
 @font-face {
     font-family: iransans;
@@ -40,7 +44,8 @@ h6 {
 }
 
 
-.swiper-button-prev:after, .swiper-button-next:after{
+.swiper-button-prev:after,
+.swiper-button-next:after {
     font-size: 30px !important;
     color: orange !important;
 }
