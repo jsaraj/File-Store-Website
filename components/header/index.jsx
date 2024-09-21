@@ -17,7 +17,7 @@ const Header = () => {
 
     return (
         <header className="shadow-sm h-32 py-2">
-            <div className="container flex justify-center">
+            <div className="container flex justify-between">
 
 
                 <div className="w-1/12">

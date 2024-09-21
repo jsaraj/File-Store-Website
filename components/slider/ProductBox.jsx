@@ -9,7 +9,7 @@ import { IoMdSearch } from "react-icons/io";
 const ProductBox = () => {
     return (
         <Link href="#">
-            <div className=" relative w-[340px] h-[450px] bg-zinc-50 rounded-md overflow-hidden hover:-translate-y-2 transition-all duration-200 ">
+            <div className=" relative w-[355px] h-[450px] bg-zinc-50 rounded-md overflow-hidden hover:-translate-y-2 transition-all duration-200 ">
                 <Image
                     src="/images/pic/box-app-slider.jpg"
                     alt="seagull"

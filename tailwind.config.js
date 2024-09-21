@@ -12,7 +12,10 @@ module.exports = {
     extend: {
       boxShadow: {
         'inner2': '0px 0px 5px 2px rgba(0, 0, 0, 0.2) inset',
-      }
+      },
+      container: {
+        padding: '2rem',
+      },
     },
   },
   plugins: [],

@@ -8,7 +8,7 @@ const MiddleBanner = () => {
     const [scaleBanner1, setScaleBanner1] = useState(false)
     const [scaleBanner2, setScaleBanner2] = useState(false)
     return (
-        <div className="flex gap-5 m-16">
+        <div className="flex flex-wrap md:flex-nowrap gap-5 container py-10 justify-center md:justify-between">
             <Link href="#">
                 <div className="relative hover:rotate-2 transition-all duration-200" onMouseEnter={() => setScaleBanner1(true)} onMouseLeave={() => setScaleBanner1(false)}>
                     <Image
@@ -18,8 +18,8 @@ const MiddleBanner = () => {
                         width={1400}
                         className="rounded-md"
                         quality="100" />
-                    <h2 className={scaleBanner1 ? "absolute top-5 right-5 scale-110 transition-all duration-200" : "absolute top-5 right-5 scale-100 transition-all duration-200"}>کتابخانه دیجیتال</h2>
-                    <p className={scaleBanner1 ? "absolute top-20 right-5 text-sm transition-all duration-200" : "absolute top-16 right-5 text-sm transition-all duration-200"}>این متن تست می باشد .  این متن فقط برای نمایش است به این   متن <br />زیاد دقت نفرمایید ین متن جهت نمایش می باش.  این متن جهت نمایش می باشد</p>
+                    <h2 className={scaleBanner1 ? "absolute top-5 right-5 scale-110 transition-all duration-200 " : "absolute top-5 right-5 scale-100 transition-all duration-200 "}>کتابخانه دیجیتال</h2>
+                    <p className={scaleBanner1 ? "absolute top-20 right-5 text-sm transition-all duration-200 hidden sm:block" : "absolute top-16 right-5 text-sm transition-all duration-200 hidden sm:block"}>این متن تست می باشد .  این متن فقط برای نمایش است به این   متن <br />زیاد دقت نفرمایید ین متن جهت نمایش می باش.  این متن جهت نمایش می باشد</p>
                 </div>
             </Link>
             <Link href="#">
@@ -31,8 +31,8 @@ const MiddleBanner = () => {
                         width={1400}
                         className="rounded-md hover:-rotate-2 transition-all duration-200"
                         quality="100" />
-                    <h2 className={scaleBanner2 ? "absolute top-5 right-5 scale-110 transition-all duration-200" : "absolute top-5 right-5 scale-100 transition-all duration-200"}>کتابخانه دیجیتال</h2>
-                    <p className={scaleBanner2 ? "absolute top-20 right-5 text-sm transition-all duration-200" : "absolute top-16 right-5 text-sm transition-all duration-200"}>این متن تست می باشد .  این متن فقط برای نمایش است به این   متن <br />زیاد دقت نفرمایید ین متن جهت نمایش می باش.  این متن جهت نمایش می باشد</p>
+                    <h2 className={scaleBanner2 ? "absolute top-5 right-5 scale-110 transition-all duration-200 " : "absolute top-5 right-5 scale-100 transition-all duration-200 "}>کتابخانه دیجیتال</h2>
+                    <p className={scaleBanner2 ? "absolute top-20 right-5 text-sm transition-all duration-200 hidden sm:block" : "absolute top-16 right-5 text-sm transition-all duration-200 hidden sm:block"}>این متن تست می باشد .  این متن فقط برای نمایش است به این   متن <br />زیاد دقت نفرمایید ین متن جهت نمایش می باش.  این متن جهت نمایش می باشد</p>
                 </div>
 
             </Link>
