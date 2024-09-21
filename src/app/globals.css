@@ -47,6 +47,9 @@ h6 {
 .swiper-button-prev:after,
 .swiper-button-next:after {
     font-size: 30px !important;
-    color: orange !important;
+    color: rgb(201, 201, 201) !important;
 }
 
+.swiper{
+ padding-top: 7px !important;
+}
