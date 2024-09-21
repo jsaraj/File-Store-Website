@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <>
       <MainSlider/>
-      <ProductSlider title="اپلیکیشن" linkslider="apps"/>
+      <ProductSlider title="اپلیکیشن" linkslider="apps" backcolor="#ffb74d"/>
       <MiddleBanner/>
-      <ProductSlider title="کتاب" linkslider="books"/>
+      <ProductSlider title="کتاب" linkslider="books" backcolor="#26c6da"/>
     </>
   );
 }
