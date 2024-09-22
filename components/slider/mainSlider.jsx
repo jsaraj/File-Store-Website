@@ -19,7 +19,7 @@ import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules';
 export default function MainSlider() {
   return (
     <>
-      <section className="container my-5">
+      <section className="container mx-auto my-5">
         <Swiper
           rewind={true}
           spaceBetween={30}

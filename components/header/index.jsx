@@ -17,8 +17,7 @@ const Header = () => {
 
     return (
         <header className="shadow-sm h-32 py-2">
-            <div className="container flex justify-between">
-
+            <div className="container mx-auto flex justify-between">
 
                 <div className="w-1/12">
                     <Link href={"/"}>
@@ -32,8 +31,6 @@ const Header = () => {
                         />
                     </Link>
                 </div>
-
-
 
                 <div className="w-7/12 flex flex-col gap-5 py-2 h-32 px-5">
                     <div>

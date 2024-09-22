@@ -10,7 +10,7 @@ import { AiOutlineFormatPainter } from "react-icons/ai";
 const GraphicBox = () => {
     return (
         <Link href="#">
-            <div className=" relative w-[355px] h-[520px] bg-zinc-50 rounded-md overflow-hidden hover:-translate-y-2 transition-all duration-200 ">
+            <div className=" relative w-[350px] h-[520px] bg-zinc-50 rounded-md overflow-hidden hover:-translate-y-2 transition-all duration-200 ">
                 <Image
                     src="/images/pic/psdfile.png"
                     alt="seagull"

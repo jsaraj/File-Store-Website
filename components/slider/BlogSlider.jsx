@@ -18,7 +18,7 @@ export default function BlogSlider({backcolor}) {
     return (
         <>
             <section className=' shadow-inner2 pt-6 pb-10 my-8' style={{background:`${backcolor}`}}>
-                <div className='mx-8'>
+                <div className='container mx-auto'>
                     <div className='flex justify-between text-slate-50'>
                         <h2 className='  mb-5 border-r-2 pr-3 border-gray-600'>مقالات</h2>
                         <Link href="/" className="flex border text-slate-50 items-center bg-gray-500 h-8 rounded-l-3xl px-5 rounded-r-md hover:bg-opacity-0 hover:border border-gray-500 transition-all duration-300 hover:text-gray-600">مشاهده همه </Link>

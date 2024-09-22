@@ -8,7 +8,7 @@ const EndBanner = () => {
     const [scaleBanner1, setScaleBanner1] = useState(false)
     const [scaleBanner2, setScaleBanner2] = useState(false)
     return (
-        <div className="flex flex-wrap md:flex-nowrap gap-5 container py-10 justify-center md:justify-between">
+        <div className="flex flex-wrap md:flex-nowrap gap-5 container mx-auto py-10 justify-center md:justify-between">
             <Link href="#">
                 <div className="relative hover:rotate-2 transition-all duration-200" onMouseEnter={() => setScaleBanner1(true)} onMouseLeave={() => setScaleBanner1(false)}>
                     <Image
