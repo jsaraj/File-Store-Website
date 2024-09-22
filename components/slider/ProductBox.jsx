@@ -9,20 +9,20 @@ import { IoMdSearch } from "react-icons/io";
 const ProductBox = () => {
     return (
         <Link href="#">
-            <div className=" relative w-[355px] h-[450px] bg-zinc-50 rounded-md overflow-hidden hover:-translate-y-2 transition-all duration-200 ">
+            <div className=" relative w-[355px] h-[480px] bg-zinc-50 rounded-md overflow-hidden hover:-translate-y-2 transition-all duration-200 ">
                 <Image
                     src="/images/pic/box-app-slider.jpg"
                     alt="seagull"
-                    width={500}
-                    height={333}
+                    width={360}
+                    height={250}
                 />
                 <h4 className="text-center py-2">
                     کتاب جاناتان مرغ دریایی
                 </h4>
                 <div className="pt-3 flex flex-wrap">
-                    <span className="text-center bg-gray-300 h-8 py-1 px-3 m-1 rounded-sm"> رمان </span>
-                    <span className="text-center bg-gray-300 h-8 py-1 px-3 m-1 rounded-sm">درام</span>
-                    <span className="text-center bg-gray-300 h-8 py-1 px-3 m-1 rounded-sm">انگیزشی</span>
+                    <span className="text-center text-base sm:text-sm bg-gray-200 h-8 py-1 px-3 m-1 rounded-sm"> رمان </span>
+                    <span className="text-center text-base sm:text-sm bg-gray-200 h-8 py-1 px-3 m-1 rounded-sm">درام</span>
+                    <span className="text-center text-base sm:text-sm bg-gray-200 h-8 py-1 px-3 m-1 rounded-sm">انگیزشی</span>
                    
                 </div>
                 <div className="flex justify-between absolute bottom-0 w-full">
