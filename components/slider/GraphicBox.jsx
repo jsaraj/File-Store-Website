@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaCartPlus } from "react-icons/fa6";
-import { IoHeart } from "react-icons/io5";
+import { IoHeart ,IoResizeSharp ,IoSaveOutline } from "react-icons/io5";
 import { IoMdSearch } from "react-icons/io";
 import { AiOutlineFormatPainter } from "react-icons/ai";
 
@@ -20,7 +20,7 @@ const GraphicBox = () => {
                 <h4 className="text-center py-2">
                     فایل گرافیکی یک
                 </h4>
-                <div className="flex justify-between p-2 bg-gray-100 mb-1">
+                <div className="flex justify-between p-2 bg-gray-100 mb-1 text-base sm:text-sm">
                     <div className="flex justify-start gap-2">
                         <AiOutlineFormatPainter size={20} />
                         <p>فرمت</p>
@@ -30,17 +30,17 @@ const GraphicBox = () => {
                     </div>
                 </div>
                 <div className="flex justify-between p-2 bg-gray-100 mb-1">
-                    <div className="flex justify-start gap-2">
-                        <AiOutlineFormatPainter size={20} />
+                    <div className="flex justify-start gap-2 text-base sm:text-sm">
+                        <IoResizeSharp size={20} />
                         <p>سایز</p>
                     </div>
                     <div>
                         <p>100*200</p>
                     </div>
                 </div>
-                <div className="flex justify-between p-2 bg-gray-100 ">
+                <div className="flex justify-between p-2 bg-gray-100 text-base sm:text-sm ">
                     <div className="flex justify-start gap-2">
-                        <AiOutlineFormatPainter size={20} />
+                        <IoSaveOutline size={20} />
                         <p>حجم</p>
                     </div>
                     <div>
