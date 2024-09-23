@@ -5,10 +5,12 @@
 
 * {
     font-family: iransans, -apple-system, sans-serif;
-    color: #37474f;
+    
 }
 
-
+body{
+    color: #37474f;
+}
 
 @font-face {
     font-family: iransans;
