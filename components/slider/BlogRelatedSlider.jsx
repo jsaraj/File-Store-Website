@@ -14,13 +14,13 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules';
 
-export default function BlogRelatedSlider() {
+export default function BlogRelatedSlider({title}) {
     return (
         <>
-            <section className='border rounded-md pt-6 pb-10 my-8'>
-                <div className='container mx-auto'>
+            <div className='border rounded-md pt-6 pb-10 my-8'>
+                <div className="mx-4">
                     <div className='flex justify-between'>
-                        <h2 className='mb-5 border-r-2 pr-3'>مقالات مرتبط</h2>
+                        <h2 className='mb-5 border-r-2 pr-3'>{title}</h2>
                         <Link href="/" className="flex border text-slate-50 items-center bg-gray-500 h-8 rounded-l-3xl px-5 rounded-r-md hover:bg-opacity-0 hover:border border-gray-500 transition-all duration-300 hover:text-gray-600">مشاهده همه </Link>
                     </div>
                     <Swiper
@@ -59,7 +59,7 @@ export default function BlogRelatedSlider() {
                     </Swiper>
                 </div>
 
-            </section>
+            </div>
         </>
     );
 }
