@@ -26,18 +26,18 @@ const Footer = () => {
                 <div>
                     <h3 className="pb-2 mb-4 border-b border-orange-400 text-gray-600">دسترسی سریع</h3>
                     <ul className="flex flex-col gap-3">
-                        <li className="flex items-center"><IoIosArrowBack /><Link href="#" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">درباره ما</Link></li>
-                        <li className="flex items-center"><IoIosArrowBack /><Link href="#" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">وبلاگ</Link></li>
-                        <li className="flex items-center"><IoIosArrowBack /><Link href="#" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">حریم خصوصی</Link></li>
-                        <li className="flex items-center"><IoIosArrowBack /><Link href="#" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">تماس با ما</Link></li>
+                        <li className="flex items-center"><IoIosArrowBack /><Link href="/about" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">درباره ما</Link></li>
+                        <li className="flex items-center"><IoIosArrowBack /><Link href="/blog" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">وبلاگ</Link></li>
+                        <li className="flex items-center"><IoIosArrowBack /><Link href="/rules" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">حریم خصوصی</Link></li>
+                        <li className="flex items-center"><IoIosArrowBack /><Link href="/contact" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">تماس با ما</Link></li>
                     </ul>
                 </div>
                 <div>
                     <h3 className="pb-2 mb-4 border-b border-orange-400 text-gray-600">راهنمای خرید</h3>
                     <ul className="flex flex-col gap-3">
-                        <li className="flex items-center"><IoIosArrowBack /><Link href="#" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">سوالات متداول</Link></li>
-                        <li className="flex items-center"><IoIosArrowBack /><Link href="#" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">چگونه خرید کنیم؟</Link></li>
-                        <li className="flex items-center"><IoIosArrowBack /><Link href="#" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">قوانین استفاده از محصولات</Link></li>
+                        <li className="flex items-center"><IoIosArrowBack /><Link href="/rules" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">سوالات متداول</Link></li>
+                        <li className="flex items-center"><IoIosArrowBack /><Link href="/rules" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">چگونه خرید کنیم؟</Link></li>
+                        <li className="flex items-center"><IoIosArrowBack /><Link href="/rules" className=" text-gray-500 text-base sm:text-sm hover:-translate-x-2 transition-all duration-200 hover:text-orange-400">قوانین استفاده از محصولات</Link></li>
                     </ul>
                 </div>
                 <div className="flex justify-center items-center gap-5">

@@ -40,7 +40,7 @@ const Header = () => {
                                 <Link href={"#"} className="bg-gray-200 text-center w-40 py-2 rounded px-3 transition-all duration-300 hover:bg-orange-300"><li>اپلیکیشن</li></Link>
                                 <Link href={"#"} className="bg-gray-200 text-center w-40 py-2 rounded px-3 transition-all duration-300 hover:bg-orange-300"><li>طرح های گرافیگی</li></Link>
                                 <Link href={"#"} className="bg-gray-200 text-center w-40 py-2 rounded px-3 transition-all duration-300 hover:bg-orange-300"><li>کتاب</li></Link>
-                                <Link href={"#"} className="bg-gray-200 text-center w-40 py-2 rounded px-3 transition-all duration-300 hover:bg-orange-300"><li>وبلاگ</li></Link>
+                                <Link href={"/blog"} className="bg-gray-200 text-center w-40 py-2 rounded px-3 transition-all duration-300 hover:bg-orange-300"><li>وبلاگ</li></Link>
                             </ul>
                         </nav>
                     </div>
@@ -69,16 +69,16 @@ const Header = () => {
                     </div>
 
                     <div className="flex gap-2">
-                        <div className="bg-gray-200 px-3 py-2 rounded cursor-pointer transition-all duration-300 hover:bg-orange-300">
+                        <Link href={"/account"} className="bg-gray-200 px-3 py-2 rounded cursor-pointer transition-all duration-300 hover:bg-orange-300">
                             <FaUserTie size={20} />
-                        </div>
-                        <div className="flex py-2 gap-6 bg-gray-200 px-6 rounded cursor-pointer transition-all duration-300 hover:bg-orange-300  items-center">
+                        </Link>
+                        <Link href={"/cart"} className="flex py-2 gap-6 bg-gray-200 px-6 rounded  transition-all duration-300 hover:bg-orange-300  items-center">
                             <p className="rounded-full w-6 h-6 text-center border border-gray-400">0</p>
                             <p>سبد خرید</p>
                             <div>
                                 <FaCartShopping size={20} />
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>
