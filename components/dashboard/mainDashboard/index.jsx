@@ -27,11 +27,11 @@ const MainDashboard = () => {
 
     console.log(contentChanger)
     return (
-        <div className="flex justify-start container items-center gap-4 py-10">
-            <div className="bg-gray-100 w-2/12 rounded-md p-3">
+        <div className="flex container gap-4 py-10">
+            <div className=" w-2/12 rounded-md p-3">
                 <DashboardCtrl setContentChanger={setContentChanger} />
             </div>
-            <div className="bg-gray-100 w-10/12 rounded-md p-3">
+            <div className="bg-gray-100 w-10/12 rounded-md p-6">
                 {detail}
             </div>
         </div>
