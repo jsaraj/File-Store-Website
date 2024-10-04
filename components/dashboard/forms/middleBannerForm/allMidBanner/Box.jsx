@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 
-const Box = ({ data }) => {
+const Box = ({ data,setMidBanDetail }) => {
     return (
-        <div className="flex gap-10 justify-between relative border border-gray-200 p-2 rounded-md overflow-hidden cursor-pointer hover:scale-[101%] transition-all duration-200">
+        <div onClick={()=>setMidBanDetail(data._id)} className="flex gap-10 justify-between relative border border-gray-200 p-2 rounded-md overflow-hidden cursor-pointer hover:scale-[101%] transition-all duration-200">
             <div>
                 {
                     <Image src="/images/singleblog.jpg" width={250} height={150} alt={data.imageAlt} className="rounded" />

@@ -3,7 +3,7 @@ import axios from "axios";
 import { use, useEffect, useState } from "react";
 import Box from "./Box";
 
-const AllMidBanner = () => {
+const AllMidBanner = ({setMidBanDetail}) => {
 
     const [banners, setBanners] = useState([]);
     const [pageNum, setPageNum] = useState(1);
@@ -32,7 +32,7 @@ const AllMidBanner = () => {
             <div className="flex flex-col gap-5">
                 {
                     banners.map((banner, i) => (
-                        <Box key={i} data={banner} />
+                        <Box key={i} data={banner} setMidBanDetail={setMidBanDetail} />
                     ))
                 }
             </div>
