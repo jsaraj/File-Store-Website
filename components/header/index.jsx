@@ -19,7 +19,7 @@ const Header = () => {
         <header className="shadow-sm h-32 py-2">
             <div className="container mx-auto flex justify-between">
 
-                <div className="w-1/12">
+                <div className="w-[10%]">
                     <Link href={"/"}>
                         <Image
                             src="/logo.png"
@@ -32,15 +32,16 @@ const Header = () => {
                     </Link>
                 </div>
 
-                <div className="w-7/12 flex flex-col gap-5 py-2 h-32 px-5">
+                <div className="w-[70%] flex flex-col gap-5 py-2 h-32 px-5">
                     <div>
                         <nav>
                             <ul className="flex gap-6">
                                 <Link href={"/"} className="bg-gray-200 text-center w-40 py-2 rounded px-3 transition-all duration-300 hover:bg-orange-300"><li>صفحه اصلی</li></Link>
                                 <Link href={"#"} className="bg-gray-200 text-center w-40 py-2 rounded px-3 transition-all duration-300 hover:bg-orange-300"><li>اپلیکیشن</li></Link>
-                                <Link href={"#"} className="bg-gray-200 text-center w-40 py-2 rounded px-3 transition-all duration-300 hover:bg-orange-300"><li>طرح های گرافیگی</li></Link>
+                                <Link href={"#"} className="bg-gray-200 text-center w-40 py-2 rounded px-3 transition-all duration-300 hover:bg-orange-300"><li>گرافیگ</li></Link>
                                 <Link href={"#"} className="bg-gray-200 text-center w-40 py-2 rounded px-3 transition-all duration-300 hover:bg-orange-300"><li>کتاب</li></Link>
                                 <Link href={"/blog"} className="bg-gray-200 text-center w-40 py-2 rounded px-3 transition-all duration-300 hover:bg-orange-300"><li>وبلاگ</li></Link>
+                                <Link href={"/dashboard"} className="bg-gray-200 text-center w-40 py-2 rounded px-3 transition-all duration-300 hover:bg-orange-300"><li>داشبورد</li></Link>
                             </ul>
                         </nav>
                     </div>
@@ -52,7 +53,7 @@ const Header = () => {
 
 
 
-                <div className="w-3/12 flex flex-col gap-2 items-end py-2">
+                <div className="w-[20%] flex flex-col gap-2 items-end py-2">
                     <div className="flex gap-3" onMouseOver={() => setRotatePhone(true)} onMouseLeave={() => setRotatePhone(false)}>
                         <p className="text-sm pt-1">09181234567</p>
                         <div className=

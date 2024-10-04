@@ -36,7 +36,7 @@ const NewMidBanner = () => {
     return (
         <div className="flex justify-center items-center">
             <div className="flex flex-col gap-5 sm:w-6/12 w-full">
-                <h2 className="text-center">اضافه کردن بنر جدید</h2>
+                <h2 className="text-center">جزییات بنر</h2>
                 <div>
                     <form onSubmit={submmiter} className="flex flex-col gap-5">
                         <div className="w-full flex flex-col gap-2">
@@ -52,7 +52,7 @@ const NewMidBanner = () => {
                             <input ref={imageLinkRef} type="text" className="p-2 outline-none rounded-md w-full border-gray-200 border" />
                         </div>
                         <div className="w-full flex flex-col gap-2">
-                            <label className="">لینک عکس</label>
+                            <label className="">فعال بودن عکس</label>
                             <select ref={imageStatusRef} className="p-2 outline-none rounded-md w-full border-gray-200 border">
                                 <option value={true}>روشن</option>
                                 <option value={false}>خاموش</option>
