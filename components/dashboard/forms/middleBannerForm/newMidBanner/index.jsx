@@ -19,15 +19,12 @@ const NewMidBanner = () => {
             imageAlt: imageAltRef.current.value,
             imageLink: imageLinkRef.current.value,
             imageStatus: imageStatusRef.current.value,
-            publishDate: new Date().toLocaleDateString("fa-IR", {
-                hour: "2-digit",
-                minute: "2-digit",
-            }),
+            publishDate:" 123"
 
         }
 
-        const url = `https://sarajfileshop.liara.run/api/new-middle-banner`;
-        axios.post(url, formData)
+
+        axios.post("http://localhost:27017/api/new-middle-banner", formData)
             .then(d => console.log("ok"))
             .catch(e => console.log(e))
     }

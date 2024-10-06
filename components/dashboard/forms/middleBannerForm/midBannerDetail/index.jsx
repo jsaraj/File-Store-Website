@@ -26,9 +26,23 @@ const MidBannerDetail = ({ midBanDetail }) => {
 
         }
 
-        const url = `https://sarajfileshop.liara.run/api/update-middle-banner`;
+        const url = `http://localhost:27017/api/update-middle-banner`;
         axios.post(url, formData)
             .then(d => console.log("ok"))
+            .catch(e => console.log(e))
+    }
+
+
+
+    const deleter = () => {
+
+        const formData = {
+            goalId: midBanDetail,
+        }
+
+        const url = `http://localhost:27017/api/delete-middle-banner`;
+        axios.post(url, formData)
+            .then(d => console.log("ok Delete"))
             .catch(e => console.log(e))
     }
 
@@ -40,7 +54,7 @@ const MidBannerDetail = ({ midBanDetail }) => {
 
 
     useEffect(() => {
-        axios.get(`https://sarajfileshop.liara.run/api/get-single-middle-banner/${midBanDetail}`)
+        axios.get(`http://localhost:27017/api/get-single-middle-banner/${midBanDetail}`)
             .then(d => {
                 setImageUrl(d.data.imageUrl),
                     setImageAlt(d.data.imageAlt),
@@ -55,7 +69,11 @@ const MidBannerDetail = ({ midBanDetail }) => {
     return (
         <div className="flex justify-center items-center">
             <div className="flex flex-col gap-5 sm:w-6/12 w-full">
-                <h2 className="text-center">جزییات بنر</h2>
+                <div className="flex justify-between items-center">
+                    <h2>جزییات بنر</h2>
+                    <button onClick={() => deleter()} className="py-1 px-3 bg-rose-400 rounded-md text-white ">حذف بنر</button>
+                </div>
+
                 <div>
                     <form onSubmit={submmiter} className="flex flex-col gap-5">
                         <div className="w-full flex flex-col gap-2">
@@ -74,7 +92,16 @@ const MidBannerDetail = ({ midBanDetail }) => {
                             <label className="">فعال بودن عکس</label>
                             <select ref={imageStatusRef} className="p-2 outline-none rounded-md w-full border-gray-200 border">
                                 {
-                                    imageStatus ? <option value={true}>روشن</option> : <option value={false}>خاموش</option>
+                                    imageStatus ?
+                                        <>
+                                            <option value={true}>روشن</option>
+                                            <option value={false}>خاموش</option>
+                                        </> :
+                                        <>
+                                            <option value={false}>خاموش</option>
+                                            <option value={true}>روشن</option>
+                                        </>
+
                                 }
                             </select>
                         </div>

@@ -1,19 +1,20 @@
 "use client"
 import axios from "axios";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Box from "./Box";
 
-const AllMidBanner = ({setMidBanDetail}) => {
+const AllMidBanner = ({setMidBanDetail , setRandNnumberForBannerDetail}) => {
 
     const [banners, setBanners] = useState([]);
     const [pageNum, setPageNum] = useState(1);
     const [numberOfBtn, setnumberOfBtn] = useState([1]);
 
     useEffect(() => {
-        axios.get(`https://sarajfileshop.liara.run/api/middle-banner?pn=${pageNum}`)
+        axios.get(`http://localhost:27017/api/middle-banner?pn=${pageNum}`)
             .then(d => {
                 setBanners(d.data.goalMidBanner);
-                setnumberOfBtn(Array.from(Array(Math.ceil(d.data.allGoalMidBan / 2)).keys()))
+                setnumberOfBtn(Array.from(Array(Math.ceil(d.data.allGoalMidBan / 10)).keys()))
+                console.log("ok get all")
             })
             .catch(e => console.log(e))
     }, [pageNum])
@@ -32,7 +33,7 @@ const AllMidBanner = ({setMidBanDetail}) => {
             <div className="flex flex-col gap-5">
                 {
                     banners.map((banner, i) => (
-                        <Box key={i} data={banner} setMidBanDetail={setMidBanDetail} />
+                        <Box key={i} data={banner} setMidBanDetail={setMidBanDetail} setRandNnumberForBannerDetail={setRandNnumberForBannerDetail} />
                     ))
                 }
             </div>

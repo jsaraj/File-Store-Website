@@ -1,12 +1,15 @@
+
 import Image from "next/image";
 
-
-const Box = ({ data,setMidBanDetail }) => {
+const Box = ({ data, setMidBanDetail, setRandNnumberForBannerDetail }) => {
     return (
-        <div onClick={()=>setMidBanDetail(data._id)} className="flex gap-10 justify-between relative border border-gray-200 p-2 rounded-md overflow-hidden cursor-pointer hover:scale-[101%] transition-all duration-200">
+        <div onClick={() => {
+            setRandNnumberForBannerDetail(Math.random)
+            setMidBanDetail(data._id)
+        }} className="flex gap-10 justify-between relative border border-gray-200 p-2 rounded-md overflow-hidden cursor-pointer hover:scale-[101%] transition-all duration-200">
             <div>
                 {
-                    <Image src="/images/singleblog.jpg" width={250} height={150} alt={data.imageAlt} className="rounded" />
+                    <Image src={data.imageUrl} width={250} height={150} alt={data.imageAlt} className="rounded" />
                 }
             </div>
             <div className="flex gap-4 absolute bottom-0 left-0 ">
