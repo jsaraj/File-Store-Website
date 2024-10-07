@@ -64,6 +64,20 @@ const ShopAside = () => {
                 </div>
             </div>
 
+
+            <div className="bg-gray-100 p-3 rounded-md border border-gray-200 ">
+                <h3 className="border-b border-orange-400 py-2 mb-3">دسته بندی ها</h3>
+                <div className="flex gap-2 flex-wrap">
+                    <Link href={"/"} className="py-1 px-2 bg-gray-200 border border-gray-300 rounded-md">دسته یک</Link>
+                    <Link href={"/"} className="py-1 px-2 bg-gray-200 border border-gray-300 rounded-md">فتوشاپ</Link>
+                    <Link href={"/"} className="py-1 px-2 bg-gray-200 border border-gray-300 rounded-md">دسته فایل</Link>
+                    <Link href={"/"} className="py-1 px-2 bg-gray-200 border border-gray-300 rounded-md">فایل</Link>
+                    <Link href={"/"} className="py-1 px-2 bg-gray-200 border border-gray-300 rounded-md">فایل</Link>
+                    <Link href={"/"} className="py-1 px-2 bg-gray-200 border border-gray-300 rounded-md">فایل</Link>
+                    <Link href={"/"} className="py-1 px-2 bg-gray-200 border border-gray-300 rounded-md">فایل</Link>
+                </div>
+            </div>
+
         </div>
     );
 }

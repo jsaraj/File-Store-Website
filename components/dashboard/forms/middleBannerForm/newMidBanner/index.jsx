@@ -37,19 +37,19 @@ const NewMidBanner = () => {
                 <div>
                     <form onSubmit={submmiter} className="flex flex-col gap-5">
                         <div className="w-full flex flex-col gap-2">
-                            <label className="">آدرس عکس</label>
-                            <input ref={imageUrlRef} type="text" className="p-2 outline-none rounded-md w-full border-gray-200 border" />
+                            <label >آدرس عکس</label>
+                            <input required ref={imageUrlRef} type="text" className="inputLtr p-2 outline-none rounded-md w-full border-gray-200 border" />
                         </div>
                         <div className="w-full flex flex-col gap-2">
-                            <label className="">آلت عکس</label>
-                            <input ref={imageAltRef} type="text" className="p-2 outline-none rounded-md w-full border-gray-200 border" />
+                            <label >آلت عکس</label>
+                            <input required ref={imageAltRef} type="text" className="p-2 outline-none rounded-md w-full border-gray-200 border" />
                         </div>
                         <div className="w-full flex flex-col gap-2">
-                            <label className="">لینک عکس</label>
-                            <input ref={imageLinkRef} type="text" className="p-2 outline-none rounded-md w-full border-gray-200 border" />
+                            <label >لینک عکس</label>
+                            <input required ref={imageLinkRef} type="text" className="inputLtr p-2 outline-none rounded-md w-full border-gray-200 border" />
                         </div>
                         <div className="w-full flex flex-col gap-2">
-                            <label className="">فعال بودن عکس</label>
+                            <label >فعال بودن عکس</label>
                             <select ref={imageStatusRef} className="p-2 outline-none rounded-md w-full border-gray-200 border">
                                 <option value={true}>روشن</option>
                                 <option value={false}>خاموش</option>

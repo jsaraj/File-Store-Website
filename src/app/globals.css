@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 
+
 * {
     font-family: iransans, -apple-system, sans-serif;
     
@@ -51,4 +52,8 @@ h6 {
 
 .swiper{
  padding-top: 7px !important;
+}
+
+.inputLtr{
+    direction: ltr;
 }
