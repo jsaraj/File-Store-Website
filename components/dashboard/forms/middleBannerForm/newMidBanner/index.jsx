@@ -19,7 +19,7 @@ const NewMidBanner = () => {
             imageAlt: imageAltRef.current.value,
             imageLink: imageLinkRef.current.value,
             imageStatus: imageStatusRef.current.value,
-            publishDate:" 123"
+            publishDate: new Date().toLocaleDateString('fa-IR', { hour: '2-digit', minute: '2-digit' })
 
         }
 

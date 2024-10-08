@@ -26,7 +26,7 @@ const MidBannerDetail = ({ midBanDetail }) => {
 
         }
 
-        const url = `http://localhost:27017/api/update-middle-banner`;
+        const url = `http://localhost:27017/api/update-middle-banner/${midBanDetail}`;
         axios.post(url, formData)
             .then(d => console.log("ok"))
             .catch(e => console.log(e))
@@ -36,12 +36,8 @@ const MidBannerDetail = ({ midBanDetail }) => {
 
     const deleter = () => {
 
-        const formData = {
-            goalId: midBanDetail,
-        }
-
-        const url = `http://localhost:27017/api/delete-middle-banner`;
-        axios.post(url, formData)
+        const url = `http://localhost:27017/api/delete-middle-banner/${midBanDetail}`;
+        axios.post(url)
             .then(d => console.log("ok Delete"))
             .catch(e => console.log(e))
     }
