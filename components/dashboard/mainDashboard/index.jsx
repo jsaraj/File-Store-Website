@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import DashboardCtrl from "../dashboard-ctrl";
 import MiddleBannerForm from "../forms/middleBannerForm";
 import SliderForm from "../forms/sliderForm";
+import Posts from "../forms/postForm"
 
 
 const MainDashboard = () => {
@@ -17,6 +18,9 @@ const MainDashboard = () => {
         }
         else if (contentChanger === "sliders") {
             setDetail(<SliderForm />)
+        }
+        else if (contentChanger === "posts") {
+            setDetail(<Posts />)
         }
     }, [contentChanger])
 
