@@ -2,22 +2,23 @@
 
 import { useEffect, useState } from "react";
 import AllPosts from "./allPost";
-import NewMidBanner from "./newPost";
-import MidBannerDetail from "./postDetail";
+import NewPost from "./newPost";
+import PostDetail from "./postDetail";
 
 
 const PostForm = () => {
 
-    const [midBanDetail, setMidBanDetail] = useState("");
-    const [randNnumberForBannerDetail, setRandNnumberForBannerDetail] = useState(1)
-    const [detail, setDetail] = useState(<AllPosts setMidBanDetail={setMidBanDetail} setRandNnumberForBannerDetail={setRandNnumberForBannerDetail} />)
+    const [postDetail, setPostDetail] = useState("");
+    const [postDeSlug, setPostdeSlug] = useState("");
+    const [randNnumberForPostDetail, setRandNnumberForPostDetail] = useState(1)
+    const [detail, setDetail] = useState(<AllPosts setPostDetail={setPostDetail} setPostdeSlug={setPostdeSlug} setRandNnumberForPostDetail={setRandNnumberForPostDetail} />)
 
 
     useEffect(() => {
-        if (midBanDetail != "") {
-            setDetail(<MidBannerDetail midBanDetail={midBanDetail} />)
+        if (postDetail != "") {
+            setDetail(<PostDetail postDetail={postDetail} postDeSlug={postDeSlug} />)
         }
-    }, [randNnumberForBannerDetail])
+    }, [randNnumberForPostDetail])
 
 
 
@@ -29,10 +30,10 @@ const PostForm = () => {
                 </div>
                 <div className="flex gap-5 items-center">
 
-                    <button onClick={() => setDetail(<AllPosts setMidBanDetail={setMidBanDetail} setRandNnumberForBannerDetail={setRandNnumberForBannerDetail} />)} className=" px-3 py-1 rounded-md bg-orange-400 border text-white hover:bg-opacity-0 hover:border hover:border-orange-400 hover:text-orange-500 transition-all duration-200">همه</button>
+                    <button onClick={() => setDetail(<AllPosts setPostDetail={setPostDetail} setPostdeSlug={setPostdeSlug} setRandNnumberForPostDetail={setRandNnumberForPostDetail} />)} className=" px-3 py-1 rounded-md bg-orange-400 border text-white hover:bg-opacity-0 hover:border hover:border-orange-400 hover:text-orange-500 transition-all duration-200">همه</button>
 
 
-                    <button onClick={() => setDetail(<NewMidBanner />)} className=" px-3 py-1 rounded-md bg-orange-400 border text-white hover:bg-opacity-0 hover:border hover:border-orange-400 hover:text-orange-500 transition-all duration-200">جدید</button>
+                    <button onClick={() => setDetail(<NewPost />)} className=" px-3 py-1 rounded-md bg-orange-400 border text-white hover:bg-opacity-0 hover:border hover:border-orange-400 hover:text-orange-500 transition-all duration-200">جدید</button>
 
                 </div>
             </div>

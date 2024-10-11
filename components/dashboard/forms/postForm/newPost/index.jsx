@@ -15,8 +15,6 @@ const NewPost = () => {
     const imageUrlRef = useRef();
     const imageAltRef = useRef();
     const publishedRef = useRef();
-
-
     const tagRef = useRef();
     const [tag, setTag] = useState([]);
     const tagSuber = (e) => {
@@ -44,8 +42,23 @@ const NewPost = () => {
             )
             .catch(e => console.log("Error in Rel Posts"))
     }, [])
-    console.log(relPosts)
 
+    const [relPostsMan, setRelPostsMan] = useState([]);
+    const postRelManage = (v) => {
+        let relManger = [...relPostsMan]
+        if (v.target.checked) {
+            relManger = [...relManger, v.target.value]
+        } else {
+            relManger.splice(relPostsMan.indexOf(v.target.value), 1)
+        }
+        setRelPostsMan(relManger)
+    }
+
+    const noKeyEnterSubmmiter=(e)=>{
+        if(e.key=="Enter"){
+            e.preventDefault();
+        }
+    }
 
     const submmiter = (e) => {
         e.preventDefault()
@@ -60,12 +73,14 @@ const NewPost = () => {
             tags: tag,
             comments: [],
             type: "post",
+            realtedPost: relPostsMan,
             pageView: 0,
             published: publishedRef.current.value,
             createdAt: new Date().toLocaleDateString('fa-IR', { hour: '2-digit', minute: '2-digit' }),
             updatesAt: new Date().toLocaleDateString('fa-IR', { hour: '2-digit', minute: '2-digit' })
         }
 
+        console.log(formData)
 
         axios.post("http://localhost:27017/api/new-post", formData)
             .then(d => console.log("ok"))
@@ -78,7 +93,7 @@ const NewPost = () => {
             <div className="flex flex-col gap-5  w-full">
                 <h2 className="text-center">اضافه کردن پست جدید</h2>
                 <div>
-                    <form onSubmit={submmiter} className="flex flex-col gap-5">
+                    <form onSubmit={submmiter} onKeyDown={noKeyEnterSubmmiter} className="flex flex-col gap-5">
                         <div className="w-full flex flex-col gap-2">
                             <label >عنوان</label>
                             <input required ref={titleRef} type="text" className=" p-2 outline-none rounded-md w-full border-gray-200 border" />
@@ -156,7 +171,7 @@ const NewPost = () => {
                                             {
                                                 relPosts.map((post, id) => (
                                                     <div key={id}>
-                                                        <input type="checkbox" className="py-3 mx-1" />{post.title}
+                                                        <input type="checkbox" onChange={postRelManage} value={post._id} className="py-3 mx-1" />{post.title}
                                                     </div>
                                                 ))
                                             }
