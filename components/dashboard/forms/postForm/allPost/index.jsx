@@ -34,7 +34,7 @@ const AllPosts = ({ setPostDetail, setRandNnumberForPostDetail, setPostdeSlug })
     return (
         <div className="flex flex-col gap-10">
             <div className="flex justify-end items-center ">
-                <div className="rounded-md border border-orange-400 py-1 px-3 text-center text-orange-500"> تعداد بنرها : {AllPostsCount} </div>
+                <div className="rounded-md border border-orange-400 py-1 px-3 text-center text-orange-500"> تعداد پست ها : {AllPostsCount} </div>
             </div>
             <div className="flex flex-col gap-5">
                 {

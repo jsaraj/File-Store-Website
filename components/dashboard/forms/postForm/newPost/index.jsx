@@ -80,10 +80,9 @@ const NewPost = () => {
             updatesAt: new Date().toLocaleDateString('fa-IR', { hour: '2-digit', minute: '2-digit' })
         }
 
-        console.log(formData)
 
         axios.post("http://localhost:27017/api/new-post", formData)
-            .then(d => console.log("ok"))
+            .then(d => console.log("ok New"))
             .catch(e => console.log(e))
     }
 

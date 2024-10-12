@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const PostDetail = ({ postDetail, postDeSlug }) => {
 
-    console.log(postDetail)
+
 
     const titleRef = useRef();
     const slugRef = useRef();
@@ -39,6 +39,7 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
         axios.get("http://localhost:27017/api/posts-rel")
             .then(d => {
                 setRelPosts(d.data);
+                console.log(d.data.realtedPost)
             }
             )
             .catch(e => console.log("Error in Rel Posts"))
@@ -67,18 +68,14 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
             imageUrl: imageUrlRef.current.value,
             imageAlt: imageAltRef.current.value,
             tags: tag,
-            comments: [],
-            type: "post",
             realtedPost: relPostsMan,
-            pageView: 0,
             published: publishedRef.current.value,
-            createdAt: new Date().toLocaleDateString('fa-IR', { hour: '2-digit', minute: '2-digit' }),
             updatesAt: new Date().toLocaleDateString('fa-IR', { hour: '2-digit', minute: '2-digit' })
         }
 
         const url = `http://localhost:27017/api/update-post/${postDetail}`;
         axios.post(url, formData)
-            .then(d => console.log("ok"))
+            .then(d => console.log("ok update"))
             .catch(e => console.log(e))
     }
 
@@ -99,31 +96,17 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
     }
 
 
-    const [title, setTitle] = useState("");
-    const [slug, setSlug] = useState("");
-    const [shortDesc, setShortDesc] = useState("");
-    const [longDesc, setLongDesc] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
-    const [imageAlt, setImageAlt] = useState("");
-    // const [tags, setTags] = useState([]);
-    // const [realtedPost, setRealtedPost] = useState([]);
-    const [published, setPublished] = useState([]);
 
 
+
+    const [fullData, setFullData] = useState(true)
 
 
     useEffect(() => {
         axios.get(`http://localhost:27017/api/get-single-post/${postDeSlug}`)
             .then(d => {
-                setTitle(d.data.title),
-                    setSlug(d.data.slug),
-                    setShortDesc(d.data.shortDesc),
-                    setLongDesc(d.data.longDesc),
-                    setImageUrl(d.data.imageUrl),
-                    setImageAlt(d.data.imageAlt),
-                    // setTags(d.data.tags),
-                    // setRealtedPost(d.data.realtedPost),
-                    setPublished(d.data.published)
+                setFullData(d.data)
+                setTag(d.data.tags)
             })
             .catch(e => {
                 console.log(e)
@@ -132,7 +115,7 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
 
     return (
         <div className="flex justify-center items-center">
-            <div className="flex flex-col gap-5 sm:w-6/12 w-full">
+            <div className="flex flex-col gap-5 w-full">
                 <div className="flex justify-between items-center">
                     <h2>جزییات پست</h2>
                     <button onClick={() => deleter()} className="py-1 px-3 bg-rose-400 rounded-md text-white ">حذف</button>
@@ -142,31 +125,31 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
                     <form onSubmit={submmiter} onKeyDown={noKeyEnterSubmmiter} className="flex flex-col gap-5">
                         <div className="w-full flex flex-col gap-2">
                             <label >عنوان</label>
-                            <input required defaultValue={title} ref={titleRef} type="text" className=" p-2 outline-none rounded-md w-full border-gray-200 border" />
+                            <input required defaultValue={fullData.title} ref={titleRef} type="text" className=" p-2 outline-none rounded-md w-full border-gray-200 border" />
                         </div>
                         <div className="w-full flex flex-col gap-2">
                             <label >اسلاگ</label>
-                            <input required defaultValue={slug} ref={slugRef} type="text" className="inputLtr p-2 outline-none rounded-md w-full border-gray-200 border" />
+                            <input required defaultValue={fullData.slug} ref={slugRef} type="text" className="inputLtr p-2 outline-none rounded-md w-full border-gray-200 border" />
                         </div>
                         <div className="w-full flex flex-col gap-2">
                             <label >توضیحات کوتاه</label>
-                            <textarea defaultValue={shortDesc} rows={3}
+                            <textarea defaultValue={fullData.shortDesc} rows={3}
                                 required ref={shortDescRef}
                                 className=" p-2 outline-none rounded-md w-full border-gray-200 border" />
                         </div>
                         <div className="w-full flex flex-col gap-2">
                             <label >توضیحات کامل</label>
-                            <textarea defaultValue={longDesc} rows={10}
+                            <textarea defaultValue={fullData.longDesc} rows={10}
                                 required ref={longDescRef}
                                 className=" p-2 outline-none rounded-md w-full border-gray-200 border" />
                         </div>
                         <div className="w-full flex flex-col gap-2">
                             <label >آدرس عکس</label>
-                            <input required defaultValue={imageUrl} ref={imageUrlRef} type="text" className="inputLtr p-2 outline-none rounded-md w-full border-gray-200 border" />
+                            <input required defaultValue={fullData.imageUrl} ref={imageUrlRef} type="text" className="inputLtr p-2 outline-none rounded-md w-full border-gray-200 border" />
                         </div>
                         <div className="w-full flex flex-col gap-2">
                             <label >آلت عکس</label>
-                            <input required defaultValue={imageAlt} ref={imageAltRef} type="text" className="p-2 outline-none rounded-md w-full border-gray-200 border" />
+                            <input required defaultValue={fullData.imageAlt} ref={imageAltRef} type="text" className="p-2 outline-none rounded-md w-full border-gray-200 border" />
                         </div>
                         <div className=" flex flex-col gap-2">
                             <label>تگ ها</label>
@@ -210,14 +193,18 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
                                             width={40}
                                             height={40}
                                             src={"/loading.gif"}
+                                            
                                         /></div>
                                     : (relPosts.length < 1)
                                         ? <div> مقاله ای یافت نشد</div>
                                         : (<div className="flex flex-wrap gap-5 items-center">
                                             {
+
                                                 relPosts.map((post, id) => (
                                                     <div key={id}>
+
                                                         <input type="checkbox" onChange={postRelManage} value={post._id} className="py-3 mx-1" />{post.title}
+
                                                     </div>
                                                 ))
                                             }
@@ -231,7 +218,7 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
                             <label >فعال بودن پست</label>
                             <select ref={publishedRef} className="p-2 outline-none rounded-md w-full border-gray-200 border">
                                 {
-                                    published ? <>
+                                    fullData.published ? <>
                                         <option value={true}>انتشار</option>
                                         <option value={false}>پیش نویس</option>
                                     </> : <>

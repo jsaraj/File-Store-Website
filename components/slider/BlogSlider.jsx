@@ -2,7 +2,6 @@
 
 "use client"
 
-import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 // Import Swiper React components
@@ -14,7 +13,17 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules';
 
-export default function BlogSlider({backcolor}) {
+
+const getData = async () => {
+    const data = await fetch("http://localhost:27017/api/get-active-posts")
+    return data.json();
+}
+
+export default async function BlogSlider({backcolor}) {
+
+    const data = await getData();
+    console.log(data)
+
     return (
         <>
             <section className=' shadow-inner2 pt-6 pb-10 my-8' style={{background:`${backcolor}`}}>
@@ -46,15 +55,11 @@ export default function BlogSlider({backcolor}) {
                         modules={[Pagination, Navigation, Scrollbar]}
                         className="mySwiper"
                     >
-                        <SwiperSlide><BlogBox /></SwiperSlide>
-                        <SwiperSlide><BlogBox /></SwiperSlide>
-                        <SwiperSlide><BlogBox /></SwiperSlide>
-                        <SwiperSlide><BlogBox /></SwiperSlide>
-                        <SwiperSlide><BlogBox /></SwiperSlide>
-                        <SwiperSlide><BlogBox /></SwiperSlide>
-                        <SwiperSlide><BlogBox /></SwiperSlide>
-                        <SwiperSlide><BlogBox /></SwiperSlide>
-                        <SwiperSlide><BlogBox /></SwiperSlide>
+                        {
+                            data.map((blog,id)=>(
+                                <SwiperSlide key={id}><BlogBox data={blog} /></SwiperSlide>
+                            ))
+                        }
                     </Swiper>
                 </div>
 
