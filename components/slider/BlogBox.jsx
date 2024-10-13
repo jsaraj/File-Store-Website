@@ -2,16 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaCartPlus } from "react-icons/fa6";
-import { IoHeart } from "react-icons/io5";
-import { IoMdSearch } from "react-icons/io";
 
 
 
 const BlogBox = ({ data }) => {
     return (
         <Link href={`/blog/${data.slug}`}>
-            <div className=" relative w-[350px] sm:h-[450px] h-[480px] bg-zinc-50 rounded-md overflow-hidden hover:-translate-y-2 transition-all duration-200 p-2 ">
+            <div className=" relative border my-5 w-[340px] sm:h-[450px] h-[480px] bg-zinc-50 rounded-md overflow-hidden hover:-translate-y-2 transition-all duration-200 p-2 ">
                 <Image
                     src={data.imageUrl}
                     alt={data.imageAlt}
