@@ -2,9 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaCartPlus } from "react-icons/fa6";
-import { IoHeart } from "react-icons/io5";
-import { IoMdSearch } from "react-icons/io";
 
 
 
