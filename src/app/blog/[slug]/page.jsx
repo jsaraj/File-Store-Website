@@ -3,10 +3,10 @@ import Image from "next/image";
 import { FaRegEye, FaRegCommentDots } from "react-icons/fa";
 import { IoCalendarNumberOutline } from "react-icons/io5";
 import BlogRelatedSlider from "../../../../components/slider/BlogRelatedSlider";
-import BlogAside from "./ShopAside";
+import BlogAside from "./BlogAside";
 
 const getData = async (slug) => {
-    const data = await fetch(`http://localhost:27017/api/get-single-post/${slug}`);
+    const data = await fetch(`http://localhost:27017/api/get-single-post/${slug}`, { catch: "no-store" });
     return data.json();
 }
 
@@ -16,7 +16,7 @@ const SingleBlog = async ({ params }) => {
     return (
         <>
             <div className=" container">
-                <BreadCrumb secondTitle="بلاگ" secondLink="/blog" title={data.title} />
+                <BreadCrumb secondTitle="بلاگ" secondLink="/blog" title={data.title} link={data.slug} />
             </div>
             <div className="flex justify-between container gap-7">
 
@@ -45,19 +45,19 @@ const SingleBlog = async ({ params }) => {
                             <IoCalendarNumberOutline color="orange" size={20} />
                             <span>{data.updatesAt}</span>
                         </div>
+
                     </div>
                     <div>
                         <p className="text-justify leading-10">{data.longDesc}</p>
                     </div>
                     <div>
-                        <BlogRelatedSlider title="مقالات مرتبط" />
+                        <BlogRelatedSlider relData={data.realtedPost} title="مقالات مرتبط" />
                     </div>
                     <div className="h-96 w-full rounded-md p-4 border">
                         <h2 className='mb-5 border-r-2 pr-3 border-gray-200'>دیدگاه ها</h2>
                     </div>
                 </section>
                 <div className="sm:2/12 w-full">
-            
                     <BlogAside shortDesc={data.shortDesc} tags={data.tags} />
                 </div>
             </div>

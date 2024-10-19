@@ -3,9 +3,16 @@ import { BiSearchAlt2 } from "react-icons/bi";
 import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
 
+const getData = async () => {
+    const data = await fetch(`http://localhost:27017/api/get-most-view-blog`);
+    return data.json();
+}
 
+const BlogAside = async ({ shortDesc, tags }) => {
 
-const BlogAside = ({ shortDesc, tags }) => {
+    const data = await getData();
+    console.log(data)
+
     return (
         <div className=" flex flex-col gap-5 ">
 
@@ -20,18 +27,13 @@ const BlogAside = ({ shortDesc, tags }) => {
             <div className="bg-gray-100 p-3 rounded-md">
                 <h3 className="border-b border-orange-400 py-2 mb-3">پربازدید ترین مقالات</h3>
                 <ul className="flex flex-col gap-4">
-                    <li>
-                        <Link href={"/"} className="flex gap-1 items-center hover:-translate-x-2 transition-all duration-200"><IoIosArrowBack /> مقاله دوم من</Link>
-                    </li>
-                    <li>
-                        <Link href={"/"} className="flex gap-1 items-center hover:-translate-x-2 transition-all duration-200"><IoIosArrowBack />مقاله سوم من</Link>
-                    </li>
-                    <li>
-                        <Link href={"/"} className="flex gap-1 items-center hover:-translate-x-2 transition-all duration-200"><IoIosArrowBack />مقاله چهارم من</Link>
-                    </li>
-                    <li>
-                        <Link href={"/"} className="flex gap-1 items-center hover:-translate-x-2 transition-all duration-200"><IoIosArrowBack />مقاله پنجم من</Link>
-                    </li>
+                    {
+                        data.map((da, i) => (
+                            <li key={i}>
+                                <Link href={da.slug} className="flex gap-1 items-center hover:-translate-x-2 transition-all duration-200"><IoIosArrowBack /> {da.title}</Link>
+                            </li>
+                        ))
+                    }
                 </ul>
 
             </div>
