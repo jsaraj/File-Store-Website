@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const MidBannerDetail = ({ midBanDetail }) => {
@@ -28,8 +30,34 @@ const MidBannerDetail = ({ midBanDetail }) => {
 
         const url = `http://localhost:27017/api/update-middle-banner/${midBanDetail}`;
         axios.post(url, formData)
-            .then(d => console.log("ok"))
-            .catch(e => console.log(e))
+            .then(d => {
+                toast.success('🦄 بنر با موفقیت بروزرسانی شد', {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
+            .catch(e => {
+                let message = 'عملیات ناموفق بود'
+                if (e.response.data.msg) {
+                    message = e.response.data.msg;
+                }
+                toast.error(message, {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
     }
 
 
@@ -38,8 +66,30 @@ const MidBannerDetail = ({ midBanDetail }) => {
 
         const url = `http://localhost:27017/api/delete-middle-banner/${midBanDetail}`;
         axios.post(url)
-            .then(d => console.log("ok Delete"))
-            .catch(e => console.log(e))
+            .then(d => {
+                toast.success('🦄 بنر با موفقیت حذف شد', {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
+            .catch(e => {
+                toast.error('🦄 عملیات ناموفق بود', {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
     }
 
 
@@ -103,6 +153,18 @@ const MidBannerDetail = ({ midBanDetail }) => {
                         </div>
                         <input type="submit" value="بروزرسانی" className="py-2 bg-orange-400 cursor-pointer rounded-md text-white" />
                     </form>
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={4000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="dark"
+                    />
                 </div>
             </div>
         </div>

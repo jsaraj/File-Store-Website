@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import axios from "axios";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const NewMidBanner = () => {
 
@@ -25,8 +26,34 @@ const NewMidBanner = () => {
 
 
         axios.post("http://localhost:27017/api/new-middle-banner", formData)
-            .then(d => console.log("ok"))
-            .catch(e => console.log(e))
+            .then(d => {
+                toast.success('🦄 بنر با موفقیت ایجاد شد', {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
+            .catch(e => {
+                let message = 'عملیات ناموفق بود'
+                if (e.response.data.msg) {
+                    message = e.response.data.msg;
+                }
+                toast.error(message, {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
     }
 
 
@@ -57,6 +84,18 @@ const NewMidBanner = () => {
                         </div>
                         <input type="submit" value="ارسال" className="py-2 bg-orange-400 cursor-pointer rounded-md text-white" />
                     </form>
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={4000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="dark"
+                    />
                 </div>
             </div>
         </div>

@@ -4,6 +4,9 @@ import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { MdDeleteForever } from "react-icons/md";
 import Image from "next/image";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const NewPost = () => {
@@ -54,8 +57,8 @@ const NewPost = () => {
         setRelPostsMan(relManger)
     }
 
-    const noKeyEnterSubmmiter=(e)=>{
-        if(e.key=="Enter"){
+    const noKeyEnterSubmmiter = (e) => {
+        if (e.key == "Enter") {
             e.preventDefault();
         }
     }
@@ -82,8 +85,34 @@ const NewPost = () => {
 
 
         axios.post("http://localhost:27017/api/new-post", formData)
-            .then(d => console.log("ok New"))
-            .catch(e => console.log(e))
+            .then(d => {
+                toast.success('🦄 پست با موفقیت ایجاد شد', {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
+            .catch(e => {
+                let message = 'عملیات ناموفق بود'
+                if (e.response.data.msg) {
+                    message = e.response.data.msg;
+                }
+                toast.error(message, {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
     }
 
 
@@ -189,7 +218,20 @@ const NewPost = () => {
                         </div>
                         <input type="submit" value="ارسال" className="py-2 bg-orange-400 cursor-pointer rounded-md text-white" />
                     </form>
+
                 </div>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={4000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                />
             </div>
         </div>
 

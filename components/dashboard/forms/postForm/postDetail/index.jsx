@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { MdDeleteForever } from "react-icons/md";
 import Image from "next/image";
-
+import Link from "next/link";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PostDetail = ({ postDetail, postDeSlug }) => {
 
@@ -75,8 +77,36 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
 
         const url = `http://localhost:27017/api/update-post/${postDetail}`;
         axios.post(url, formData)
-            .then(d => console.log("ok update"))
-            .catch(e => console.log(e))
+            .then(d => {
+                toast.success('🦄 پست با موفقیت بروزرسانی شد', {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
+            .catch(e => {
+                
+                let message = 'عملیات ناموفق بود'
+                if (e.response.data.msg) {
+                    message = e.response.data.msg;
+                    console.log(e.response.data.msg)
+                }
+                toast.error(message, {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
     }
 
 
@@ -91,8 +121,30 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
 
         const url = `http://localhost:27017/api/delete-post/${postDetail}`;
         axios.post(url)
-            .then(d => console.log("ok Delete"))
-            .catch(e => console.log(e))
+            .then(d => {
+                toast.success('🦄 پست با موفقیت حذف شد', {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
+            .catch(e => {
+                toast.error('🦄 عملیات ناموفق بود', {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
     }
 
 
@@ -118,7 +170,11 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
             <div className="flex flex-col gap-5 w-full">
                 <div className="flex justify-between items-center">
                     <h2>جزییات پست</h2>
-                    <button onClick={() => deleter()} className="py-1 px-3 bg-rose-400 rounded-md text-white ">حذف</button>
+                    <div className="flex gap-3">
+                        <Link href={`/blog/${fullData.slug}`} target="blank" className="py-1 px-3 bg-green-400 rounded-md text-white ">مشاهده پست</Link>
+                        <button onClick={() => deleter()} className="py-1 px-3 bg-rose-400 rounded-md text-white ">حذف</button>
+                    </div>
+
                 </div>
 
                 <div>
@@ -193,7 +249,7 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
                                             width={40}
                                             height={40}
                                             src={"/loading.gif"}
-                                            
+
                                         /></div>
                                     : (relPosts.length < 1)
                                         ? <div> مقاله ای یافت نشد</div>
@@ -231,6 +287,18 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
                         </div>
                         <input type="submit" value="بروزرسانی" className="py-2 bg-orange-400 cursor-pointer rounded-md text-white" />
                     </form>
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={4000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="dark"
+                    />
                 </div>
             </div>
         </div>
