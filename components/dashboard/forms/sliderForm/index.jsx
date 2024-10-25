@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import AllMainSlider from "./allMainSlider";
 import NewMainSlider from "./newMainSlider";
-import MidBannerDetail from "./midBannerDetail";
+import MainSliderDetail from "./mainSliderDetail";
 
 
 const MiddleBannerForm = () => {
@@ -15,7 +15,7 @@ const MiddleBannerForm = () => {
 
     useEffect(() => {
         if (mainSliderDetail != "") {
-            setDetail(<MidBannerDetail mainSliderDetail={mainSliderDetail} />)
+            setDetail(<MainSliderDetail mainSliderDetail={mainSliderDetail} />)
         }
     }, [randNnumberForBannerDetail])
 

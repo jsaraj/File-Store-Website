@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const MidBannerDetail = ({ midBanDetail }) => {
+const MainSliderDetail = ({ mainSliderDetail }) => {
     const imageUrlRef = useRef();
     const imageAltRef = useRef();
     const imageLinkRef = useRef();
@@ -16,8 +16,8 @@ const MidBannerDetail = ({ midBanDetail }) => {
         e.preventDefault()
 
         const formData = {
-            goalId: midBanDetail,
-            imageUrl: imageUrlRef.current.value,
+            goalId: mainSliderDetail,
+            imageSrc: imageUrlRef.current.value,
             imageAlt: imageAltRef.current.value,
             imageLink: imageLinkRef.current.value,
             imageStatus: imageStatusRef.current.value,
@@ -28,7 +28,7 @@ const MidBannerDetail = ({ midBanDetail }) => {
 
         }
 
-        const url = `http://localhost:27017/api/update-middle-banner/${midBanDetail}`;
+        const url = `http://localhost:27017/api/update-main-slider/${mainSliderDetail}`;
         axios.post(url, formData)
             .then(d => {
                 toast.success('🦄 بنر با موفقیت بروزرسانی شد', {
@@ -64,7 +64,7 @@ const MidBannerDetail = ({ midBanDetail }) => {
 
     const deleter = () => {
 
-        const url = `http://localhost:27017/api/delete-middle-banner/${midBanDetail}`;
+        const url = `http://localhost:27017/api/delete-main-slider/${mainSliderDetail}`;
         axios.post(url)
             .then(d => {
                 toast.success('🦄 بنر با موفقیت حذف شد', {
@@ -100,9 +100,9 @@ const MidBannerDetail = ({ midBanDetail }) => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:27017/api/get-single-middle-banner/${midBanDetail}`)
+        axios.get(`http://localhost:27017/api/get-single-main-slider/${mainSliderDetail}`)
             .then(d => {
-                setImageUrl(d.data.imageUrl),
+                setImageUrl(d.data.imageSrc),
                     setImageAlt(d.data.imageAlt),
                     setImageLink(d.data.imageLink),
                     setImageStatus(d.data.imageStatus)
@@ -172,4 +172,4 @@ const MidBannerDetail = ({ midBanDetail }) => {
     );
 }
 
-export default MidBannerDetail;
+export default MainSliderDetail;
