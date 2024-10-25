@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import AllMainSlider from "./allMainSlider";
 import NewMainSlider from "./newMainSlider";
-import MainSliderDetail from "./mainSliderDetail";
+import MainSliderDetail from "./midBannerDetail";
 
 
 const MiddleBannerForm = () => {

@@ -6,7 +6,6 @@ const Box = ({ data, setMainSliderDetail, setRandNnumberForBannerDetail }) => {
         <div onClick={() => {
             setRandNnumberForBannerDetail(Math.random)
             setMainSliderDetail(data._id)
-            console.log(data)
         }} className="flex gap-10 justify-between relative border border-gray-200 p-2 rounded-md overflow-hidden cursor-pointer hover:scale-[101%] transition-all duration-200">
             <div>
                 {

@@ -41,7 +41,6 @@ const PostDetail = ({ postDetail, postDeSlug }) => {
         axios.get("http://localhost:27017/api/posts-rel")
             .then(d => {
                 setRelPosts(d.data);
-                console.log(d.data.realtedPost)
             }
             )
             .catch(e => console.log("Error in Rel Posts"))

@@ -14,7 +14,6 @@ const getData = async () => {
 const MiddleBanner = async () => {
 
     const data = await getData();
-    console.log(data)
 
     return (
 
